@@ -1,6 +1,8 @@
 // index.js
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const form = document.getElementById('search-form');
 const gallery = document.getElementById('gallery');
@@ -72,8 +74,16 @@ function renderImages(images) {
       const card = createImageCard(image);
       gallery.appendChild(card);
     });
+
+    // Initialize SimpleLightbox
+    const lightbox = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionPosition: 'bottom',
+      captionDelay: 250,
+    });
   }
 }
+
 
 function createImageCard(image) {
   const card = document.createElement('div');
