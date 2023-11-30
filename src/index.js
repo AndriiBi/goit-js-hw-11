@@ -65,10 +65,10 @@ function renderImages(images) {
   }
 
   if (images.length === 0 && currentPage === 1) {
-    Notiflix.Notify.Info('Sorry, there are no images matching your search query. Please try again.');
+    Notiflix.Notify.info('Sorry, there are no images matching your search query. Please try again.');
   } else if (images.length === 0) {
     hideLoadMoreButton();
-    Notiflix.Notify.Info("We're sorry, but you've reached the end of search results.");
+    Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
   } else {
     images.forEach((image) => {
       const card = createImageCard(image);
