@@ -1,4 +1,4 @@
-// index.js
+
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
@@ -21,7 +21,7 @@ form.addEventListener('submit', async function (e) {
   }
 
   try {
-    currentPage = 1; // Reset page on new search
+    currentPage = 1;
     const images = await fetchImages(searchQuery, currentPage);
     renderImages(images);
     showLoadMoreButton();
@@ -61,7 +61,7 @@ async function fetchImages(query, page) {
 
 function renderImages(images) {
   if (currentPage === 1) {
-    gallery.innerHTML = ''; // Clear gallery for new search
+    gallery.innerHTML = '';
   }
 
   if (images.length === 0 && currentPage === 1) {
@@ -75,7 +75,6 @@ function renderImages(images) {
       gallery.appendChild(card);
     });
 
-    // Initialize SimpleLightbox
     const lightbox = new SimpleLightbox('.gallery a', {
       captionsData: 'alt',
       captionPosition: 'bottom',
