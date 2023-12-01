@@ -63,10 +63,12 @@ function renderImages(images) {
 
   gallery.innerHTML += galleryMarkup;
 
-  // Check if there are more images to load
-  if (images.length < perPage) {
-    hideLoadMoreButton(loadMoreBtn);
-  } else {
+  // Перевіряє наявність результатів
+  const remainingResults = images.totalHits - currentPage * perPage;
+
+  if (remainingResults > 0) {
     showLoadMoreButton(loadMoreBtn);
+  } else {
+    hideLoadMoreButton(loadMoreBtn);
   }
 }
