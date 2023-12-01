@@ -42,7 +42,7 @@ loadMoreBtn.addEventListener('click', async function () {
   }
 });
 
-function renderImages(images) {
+async function renderImages(images) {
   if (currentPage === 1) {
     gallery.innerHTML = '';
   }
@@ -63,12 +63,17 @@ function renderImages(images) {
 
   gallery.innerHTML += galleryMarkup;
 
-  // Перевіряє наявність результатів
-  const remainingResults = images.totalHits - currentPage * perPage;
+  const totalHits = (currentPage - 1) * perPage + images.length;
 
-  if (remainingResults > 0) {
+  // console.log('currentPage:', currentPage);
+  // console.log('images.length:', images.length);
+  // console.log('totalHits:', totalHits);
+
+  if (totalHits >= perPage) {
     showLoadMoreButton(loadMoreBtn);
   } else {
     hideLoadMoreButton(loadMoreBtn);
   }
 }
+
+
