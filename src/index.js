@@ -63,17 +63,11 @@ async function renderImages(images) {
 
   gallery.innerHTML += galleryMarkup;
 
-  const totalHits = (currentPage - 1) * perPage + images.length;
+  const totalHits = currentPage * perPage;
 
-  // console.log('currentPage:', currentPage);
-  // console.log('images.length:', images.length);
-  // console.log('totalHits:', totalHits);
-
-  if (totalHits >= perPage) {
+  if (totalHits >= currentPage * perPage) {
     showLoadMoreButton(loadMoreBtn);
   } else {
     hideLoadMoreButton(loadMoreBtn);
   }
 }
-
-
